@@ -28,13 +28,15 @@
 // });
 
 //add this code under TODO1
- var saveButton= $(".saveBtn");
+
+var saveButton= $(".saveBtn"); 
   $(saveButton).on("click", function (e){
     e.preventDefault();
-    var userTask = $(this).val();
-    var textArea = $(".description").text(userTask);
-    localStorage.setItem("textArea", JSON.stringify(textArea));
-    alert(localStorage.getItem(userTask));
+    $(this).siblings(".description").val();
+    var timeBlockId = $(this).parent().attr(".time-block");
+    var userTask = $(".description").text(userTask);
+    localStorage.setItem(timeBlockId, userTask);
+    alert(JSON.stringify(localStorage.getItem(userTask)));
     
   });
 
