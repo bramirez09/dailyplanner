@@ -49,7 +49,7 @@ function dayHour() {
   var timeRow = $(".time-block")
 
   var currentHour = dayjs().hour()
-  var hourPage = parseInt($(this).attr("id").split("-"1))
+  var hourPage = parseInt($(this).attr("id").split("-"[1]))
   //loop throght the hours in the hour in the page
   console.log(hourpage)
 
