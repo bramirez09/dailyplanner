@@ -45,29 +45,45 @@ $(saveButton).on("click", function (e) {
 // var past = .addClass(".past")
 // var present=.addClass(".present")
 // var future= .addClass(".future")
-function dayHour() {
-  var timeRow = $(".time-block")
+// function dayHour() {
+//   var timeRow = $(".time-block")
 
+//   var currentHour = dayjs().hour()
+//   var hourPage = parseInt($(this).attr("id").split("-"[1]))
+//   //loop throght the hours in the hour in the page
+//   console.log(hourpage)
+
+//   timeRow.each(function () {
+//     if (hourPage <currentHour) {
+//       timeRow.addClass(".past");
+//     }
+//     if (hourPage > currentHour) {
+//       timeRow.addClass(".future");
+//     }
+//     if (hourPage === currentHour) {
+//       timeRow.addClass(".present");
+//     };
+//   });
+
+// };
+
+// dayHour()
+// loop over time blocks
+$('.time-block').each(function () {
+  var blockHour = parseInt($(this).attr('id').split('-')[1]);
   var currentHour = dayjs().hour()
-  var hourPage = parseInt($(this).attr("id").split("-"[1]))
-  //loop throght the hours in the hour in the page
-  console.log(hourpage)
-
-  timeRow.each(function () {
-    if (hourPage <currentHour) {
-      timeRow.addClass(".past");
-    }
-    if (hourPage > currentHour) {
-      timeRow.addClass(".future");
-    }
-    if (hourPage === currentHour) {
-      timeRow.addClass(".present");
-    };
-  });
-
-};
-
-dayHour()
+  // check if we've moved past this time
+  if (blockHour < currentHour) {
+    $(this).addClass('past');
+  } else if (blockHour === currentHour) {
+    $(this).removeClass('past');
+    $(this).addClass('present');
+  } else {
+    $(this).removeClass('past');
+    $(this).removeClass('present');
+    $(this).addClass('future');
+  }
+});
 
 
 //add this code under TODO4
