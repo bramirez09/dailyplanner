@@ -42,33 +42,8 @@ $(saveButton).on("click", function (e) {
 //end of TODO1
 
 //add this code under TODO2
-// var past = .addClass(".past")
-// var present=.addClass(".present")
-// var future= .addClass(".future")
-// function dayHour() {
-//   var timeRow = $(".time-block")
-
-//   var currentHour = dayjs().hour()
-//   var hourPage = parseInt($(this).attr("id").split("-"[1]))
-//   //loop throght the hours in the hour in the page
-//   console.log(hourpage)
-
-//   timeRow.each(function () {
-//     if (hourPage <currentHour) {
-//       timeRow.addClass(".past");
-//     }
-//     if (hourPage > currentHour) {
-//       timeRow.addClass(".future");
-//     }
-//     if (hourPage === currentHour) {
-//       timeRow.addClass(".present");
-//     };
-//   });
-
-// };
-
-// dayHour()
 // loop over time blocks
+
 $('.time-block').each(function () {
   var blockHour = parseInt($(this).attr('id').split('-')[1]);
   var currentHour = dayjs().hour()
@@ -83,6 +58,24 @@ $('.time-block').each(function () {
     $(this).removeClass('present');
     $(this).addClass('future');
   }
+});
+//end of TODO2
+
+//add this code under TODO3
+// var tasks = localStorage.getItem("saveButton")
+// var textArea = document.querySelector(".description")
+// function saveTasks(){
+//   textArea.textContent = tasks
+// }
+
+$(".description").each(function (){
+  var tasks = localStorage.getItem("saveButton")
+  var textArea = document.querySelector(".description")
+  if (localStorage.getItem("saveButton")===null){
+    localStorage.setItem("saveButton",JSON.stringify([]));
+  }
+  textArea.textContent = tasks;
+
 });
 
 
